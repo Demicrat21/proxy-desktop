@@ -1,0 +1,38 @@
+{
+  "name": "proxy6-desktop",
+  "productName": "Proxy6",
+  "version": "1.0.44",
+  "description": "Proxy6 Hub — desktop version for Windows",
+  "main": "main.js",
+  "author": "Proxy6 Desktop",
+  "license": "UNLICENSED",
+  "private": true,
+  "scripts": {
+    "start": "electron .",
+    "test": "node test/core.test.js",
+    "dist": "electron-builder --win --x64"
+  },
+  "devDependencies": {
+    "electron": "^33.2.1",
+    "electron-builder": "^25.1.8"
+  },
+  "build": {
+    "appId": "net.proxy6.hub.desktop",
+    "productName": "Proxy6",
+    "directories": { "output": "dist" },
+    "files": ["main.js", "preload.js", "lib/**", "app/**", "assets/**", "package.json"],
+    "win": {
+      "icon": "assets/icon.ico",
+      "target": [
+        { "target": "nsis", "arch": ["x64"] },
+        { "target": "portable", "arch": ["x64"] }
+      ]
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true,
+      "artifactName": "Proxy6-Setup-${version}.${ext}"
+    },
+    "portable": { "artifactName": "Proxy6-Portable-${version}.${ext}" }
+  }
+}
