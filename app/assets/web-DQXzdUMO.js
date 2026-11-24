@@ -1,0 +1,1 @@
+import{n as e}from"./index-CDUPFBnL.js";var t=class extends e{constructor(){super(),this._lastWindow=null}async open(e){var t=this;t._lastWindow=window.open(e.url,e.windowName||`_blank`)}async close(){var e=this;return new Promise((t,n)=>{e._lastWindow==null?n(`No active window to close!`):(e._lastWindow.close(),e._lastWindow=null,t())})}};new t;export{t as BrowserWeb};
